@@ -18,7 +18,6 @@ const Index = () => {
       dispatch(userRepositories(id))
       // eslint-disable-next-line
   }, [dispatch]);
-  console.log(userDetails);
   if(!userDetails[id]){
       return null
   }

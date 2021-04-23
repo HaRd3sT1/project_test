@@ -16,7 +16,6 @@ const addBookmark = (data) => {
 const bookmarkSearch = (search) => {
     return async (dispatch, getState) => {
         const items = getState().bookmarks.items ? getState().bookmarks.items : [];
-        console.log(items);
         let arr = []
         items.forEach(doc=>{
             if (doc.full_name.indexOf(search) > -1) {

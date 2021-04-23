@@ -46,7 +46,6 @@ const userRepositories = (userId) => {
             axios.get('https://api.github.com/users/'+userDetails[userId].login+'/repos')
             .then((response) => {
                 let repositoriesArr = []
-                console.log(response.data);
                 response.data && response.data.forEach(doc=>{
                     repositoriesArr.push({
                         id:doc.id,

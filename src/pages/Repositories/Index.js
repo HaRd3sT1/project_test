@@ -25,11 +25,10 @@ const Index = () => {
       });
   const {repositories} = useSelector(
     (state) => ({ 
-      repositories: state.repositories.details,
+      repositories: state.repositories.details ? state.repositories.details : {},
     }), shallowEqual
   );
   useEffect(() => {
-      console.log(id);
       dispatch(repositoriesDetail(id))
       // eslint-disable-next-line
   }, [dispatch]);
