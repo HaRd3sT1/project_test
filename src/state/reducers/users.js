@@ -3,6 +3,7 @@ import { createReducer } from 'redux-act';
 import {
     USERS_START,
     USERS_END,
+    USERS_DATA
 } from '../actions/users';
 
 const initialState = {};
@@ -20,6 +21,12 @@ const newsletters = createReducer(
                 ...state,
                 loading: false,
                 error: ""
+            })
+        },
+        [USERS_DATA]: (state, payload) => {
+            return ({
+                ...state,
+                ...payload
             })
         }
     },

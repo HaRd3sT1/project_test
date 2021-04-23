@@ -14,6 +14,7 @@ export const defaultColors ={
   primary: "#375f9d",
   primaryDark: "#19417f",
   primaryLight: "#204a8a",
+  primaryLight2: "#d9e8ff",
   primaryColor: "#85b0f2",
   primaryColorLight: "#b8cae5",
   secondary: "#475F7B",

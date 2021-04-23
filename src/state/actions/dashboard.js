@@ -1,8 +1,10 @@
 import { createAction } from 'redux-act';
 import {defaultColors} from "../../Settings"
+import {bookmarkSearch} from "./bookmarks"
+import {repositoriesData} from "./repositories"
+import {usersData} from "./users"
 
-export const CHANGE_MODE = createAction('CHANGE_MODE');
-
+export const ONCHANGE = createAction('ONCHANGE');
 
 
 const defaultColorsSet = (mode) => {
@@ -23,6 +25,7 @@ const defaultColorsSet = (mode) => {
   root.style.setProperty('--primary', colors.primary);
   root.style.setProperty('--primary-dark', colors.primaryDark);
   root.style.setProperty('--primary-light', colors.primaryLight);
+  root.style.setProperty('--primary-light-2', colors.primaryLight2);
   root.style.setProperty('--primary-color', colors.primaryColor);
   root.style.setProperty('--primary-color-light', colors.primaryColorLight);
   root.style.setProperty('--secondary', colors.secondary);
@@ -37,14 +40,20 @@ const defaultColorsSet = (mode) => {
 
 }
 
-const changeMode = (value, def) => {
-  return (dispatch, getState) => {
-    if(!def){
-      defaultColorsSet(value)
-    }
-    dispatch(CHANGE_MODE(value))
-  }
-}
 
+export const onChange = (name, value) => {
+    return async (dispatch, getState) => {
+        dispatch(ONCHANGE({[name]:value}));
+    };
+};
 
-export { changeMode, defaultColorsSet };
+export const searchData = (perPage) => {
+    return async (dispatch, getState) => {
+      const search = getState().dashboard.search;
+      dispatch(repositoriesData(search, perPage))
+      dispatch(usersData(search, perPage))
+      dispatch(bookmarkSearch(search))
+    };
+};
+
+export { defaultColorsSet };

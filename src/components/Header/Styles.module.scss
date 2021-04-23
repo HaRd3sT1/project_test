@@ -20,7 +20,6 @@
             }
             .inputRoot {
                 width: 100%;
-                color: var(--primary-color-light);
                 position: absolute;
                 left:0;
                 right:0;
@@ -31,6 +30,17 @@
                     background-color: var(--primary-dark);
                     padding-left: 52px;
                     transition: .2s all;
+                    color: #fff;
+                    &::placeholder {
+                        color: var(--primary-color-light);
+                        opacity: 1;
+                    }
+                    &:-ms-input-placeholder {
+                        color: var(--primary-color-light);
+                    }
+                    &::-ms-input-placeholder {
+                        color: var(--primary-color-light);
+                    }
                     &:focus{
                         background-color: var(--primary-light);
                     }

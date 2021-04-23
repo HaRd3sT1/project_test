@@ -1,13 +1,13 @@
 import { createReducer } from 'redux-act';
 
 import {
-  ONCHANGE
-} from '../actions/dashboard';
+    REPOSITORIES_DATA
+} from '../actions/repositories';
 const initialState = {};
 
-const dashobard = createReducer(
+const repositories = createReducer(
   {
-    [ONCHANGE]: (state, payload) => {
+    [REPOSITORIES_DATA]: (state, payload) => {
         return ({ 
             ...state,
             ...payload
@@ -17,4 +17,4 @@ const dashobard = createReducer(
   initialState
 );
 
-export default dashobard
+export default repositories
