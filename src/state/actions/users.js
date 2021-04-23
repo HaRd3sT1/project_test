@@ -6,6 +6,7 @@ import {userDetails} from "./userDetails"
 export const USERS_START = createAction('USERS_START');
 export const USERS_END = createAction('USERS_END');
 export const USERS_DATA = createAction('USERS_DATA');
+export const USER_REPOSITORIES = createAction('USER_REPOSITORIES');
 
 
 const usersData = (search, perPage) => {
@@ -38,4 +39,27 @@ const usersData = (search, perPage) => {
     }
 };
 
-export { usersData };
+const userRepositories = (userId) => {
+    return async (dispatch, getState) => {
+        const userDetails = getState().userDetails;
+        if(userDetails[userId]){
+            axios.get('https://api.github.com/users/'+userDetails[userId].login+'/repos')
+            .then((response) => {
+                let repositoriesArr = []
+                console.log(response.data);
+                response.data && response.data.forEach(doc=>{
+                    repositoriesArr.push({
+                        id:doc.id,
+                        full_name:doc.full_name,
+                        description: doc.description
+                    })
+                })
+                dispatch(USER_REPOSITORIES({
+                    repositories:repositoriesArr
+                }))
+            }).catch((error) => {  console.log(error) })
+        }
+    }
+};
+
+export { usersData, userRepositories };

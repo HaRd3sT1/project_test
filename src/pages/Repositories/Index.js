@@ -2,18 +2,9 @@ import React, {useEffect} from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import styles from './Styles.module.scss';
 import { useParams } from 'react-router-dom';
-import screen_search from "../../assets/img/icons/screen_search.svg"
 import {repositoriesDetail} from "../../state/actions/repositories"
 import MarkdownIt from "markdown-it";
-import ListContent from "../../components/List/Index"
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-import MoodIcon from '@material-ui/icons/Mood';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import NumberFormat from 'react-number-format';
 import BookIcon from "../../assets/img/icons/book.svg"
 import ForkIcon from "../../assets/img/icons/git-fork.svg"
 import BranchesIcon from "../../assets/img/icons/git-branch.svg"
@@ -22,8 +13,6 @@ import EyeIcon from "../../assets/img/icons/eye.svg"
 import StarIcon from "../../assets/img/icons/star.svg"
 import IssueIcon from "../../assets/img/icons/issue.svg"
 import LinkIcon from '@material-ui/icons/Link';
-// import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
-import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import {addBookmark} from "../../state/actions/bookmarks"
 import {floatNumber} from "../../Hooks"
 const Index = () => {
