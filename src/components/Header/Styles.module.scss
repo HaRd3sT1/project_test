@@ -1,0 +1,53 @@
+.header {
+    .appBar {
+        background-color: var(--primary);
+        .logo {
+            height: 20px;
+        }
+        .search {
+            width: 288px;
+            height: 34px;
+            flex-grow: 0;
+            margin: 0 32px 0 16px;
+            padding: 8px 16px 8px 16px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            svg {
+                position: relative;
+                z-index: 2;
+            }
+            .inputRoot {
+                width: 100%;
+                color: var(--primary-color-light);
+                position: absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                input {
+                    border-radius: 4px;
+                    background-color: var(--primary-dark);
+                    padding-left: 52px;
+                    transition: .2s all;
+                    &:focus{
+                        background-color: var(--primary-light);
+                    }
+                }
+            }
+        }
+        .menu {
+            display: flex;
+            li{
+                display: flex;
+                align-items: center;
+                span {
+                    margin-left: 6px;
+                    color: var(--white-soft);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
