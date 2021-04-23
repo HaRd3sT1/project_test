@@ -8,6 +8,7 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import {onChange, searchData} from "../../state/actions/dashboard"
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
     const dispatch = useDispatch();
@@ -21,7 +22,9 @@ const Header = (props) => {
         <div className={styles.header}>
             <AppBar position="absolute" className={styles.appBar}>
                 <Toolbar className={styles.toolbar}>
-                    <img className={styles.logo} src={Logo} alt="" />
+                    <NavLink to="/" className={styles.logo} >
+                        <img src={Logo} alt="" />
+                    </NavLink>
                     <div className={styles.search}>
                         <SearchIcon onClick={(e) => dispatch(searchData(perPage))} />
                         <InputBase
@@ -43,8 +46,10 @@ const Header = (props) => {
                     </div>
                     <ul className={styles.menu}>
                         <li>
-                            <BookmarkBorderIcon />
-                            <span>Bookmarks</span>
+                            <NavLink to="/bookmarks">
+                                <BookmarkBorderIcon />
+                                <span>Bookmarks</span>
+                            </NavLink>
                         </li>
                     </ul>
                 </Toolbar>

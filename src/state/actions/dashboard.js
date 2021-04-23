@@ -26,6 +26,7 @@ const defaultColorsSet = (mode) => {
   root.style.setProperty('--primary-dark', colors.primaryDark);
   root.style.setProperty('--primary-light', colors.primaryLight);
   root.style.setProperty('--primary-light-2', colors.primaryLight2);
+  root.style.setProperty('--primary-light-3', colors.primaryLight3);
   root.style.setProperty('--primary-color', colors.primaryColor);
   root.style.setProperty('--primary-color-light', colors.primaryColorLight);
   root.style.setProperty('--secondary', colors.secondary);

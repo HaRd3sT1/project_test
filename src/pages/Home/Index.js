@@ -16,7 +16,7 @@ const Index = () => {
   const {repositories, bookmarks, users, userDetails} = useSelector(
     (state) => ({ 
       repositories: state.repositories,
-      bookmarks: state.bookmarks.search ? state.bookmarks.search : [],
+      bookmarks: state.bookmarks ? state.bookmarks : [],
       userDetails: state.userDetails,
       users: state.users ? state.users : [],
     }), shallowEqual
@@ -71,7 +71,7 @@ const Index = () => {
             <div classes={styles.tabContent}>
               <h3 className={styles.title}>{repositories.total_count ? <NumberFormat value={repositories.total_count} displayType={'text'} thousandSeparator={true} /> : 0} Repository Results</h3>
               {repositories.items ? repositories.items.map((doc, index) => {
-                return <ListContent key={index} link={"/repostories/"+doc.id} icon={BookIcon} iconStyle={{}} title={doc.full_name} desc={doc.description} />
+                return <ListContent key={index} link={"/repositories/"+doc.id} icon={BookIcon} iconStyle={{}} title={doc.full_name} desc={doc.description} />
               }) : ""}
             </div> : 
             tab === 1 ? 
@@ -85,7 +85,10 @@ const Index = () => {
             </div> :
             tab === 2 ? 
             <div classes={styles.tabContent}>
-              
+              <h3 className={styles.title}>{bookmarks.total_count ? <NumberFormat value={bookmarks.total_count} displayType={'text'} thousandSeparator={true} /> : 0} Bookmarks Results</h3>
+              {bookmarks.search ? bookmarks.search.map((doc, index) => {
+                return <ListContent key={index} link={"/repositories/"+doc.id} icon={BookIcon} iconStyle={{}} title={doc.full_name} desc={doc.description} />
+              }) : ""}
             </div> : 
             "Not Result."
           }

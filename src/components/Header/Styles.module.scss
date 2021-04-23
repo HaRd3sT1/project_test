@@ -50,12 +50,14 @@
         .menu {
             display: flex;
             li{
-                display: flex;
-                align-items: center;
-                span {
-                    margin-left: 6px;
-                    color: var(--white-soft);
-                    font-size: 16px;
+                a{
+                    display: flex;
+                    align-items: center;
+                    span {
+                        margin-left: 6px;
+                        color: var(--white-soft);
+                        font-size: 16px;
+                    }
                 }
             }
         }

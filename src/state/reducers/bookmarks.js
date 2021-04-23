@@ -2,7 +2,7 @@ import { createReducer } from 'redux-act';
 
 import {
     BOOKMARK_SEARCH,
-    BOOKMARK_DATA
+    ADD_BOOKMARK,
 } from '../actions/bookmarks';
 const initialState = {};
 
@@ -11,15 +11,15 @@ const bookmarks = createReducer(
     [BOOKMARK_SEARCH]: (state, payload) => {
         return ({ 
             ...state,
-            search:payload
+            ...payload
         })
     },
-    [BOOKMARK_DATA]: (state, payload) => {
+    [ADD_BOOKMARK]: (state, payload) => {
         return ({ 
             ...state,
-            list:payload
+            items:payload
         })
-    }
+    },
   },
   initialState
 );
